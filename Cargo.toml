@@ -1,0 +1,23 @@
+[package]
+name = "TME"
+version = "0.1.0"
+authors = ["Ivan <delgado.ivan@protonmail.com>"]
+edition = "2018"
+
+[dev-dependencies]
+criterion = "*"
+
+[[bench]]
+name = "benchmark"
+harness = false
+
+[[bin]]
+name = "cpa_bin"
+path = "src/main.rs"
+
+[lib]
+name = "graph_lib"
+
+[dependencies]
+rand = "*"
+hashbrown = "*"

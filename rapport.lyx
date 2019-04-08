@@ -1,0 +1,1087 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Rapport du TME3 CPA
+\end_layout
+
+\begin_layout Author
+Ivan Delgado
+\end_layout
+
+\begin_layout Subsection*
+Introduction
+\end_layout
+
+\begin_layout Standard
+Le code du TME
+\end_layout
+
+\begin_layout Standard
+La code a été réalisé en Rust
+\end_layout
+
+\begin_layout Standard
+Pour faire tourner le programme on utilise le builder de Rust 
+\begin_inset Quotes eld
+\end_inset
+
+cargo
+\begin_inset Quotes erd
+\end_inset
+
+ avec l'option 
+\begin_inset Quotes eld
+\end_inset
+
+- -release
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dans un premier temps il faut 
+\begin_inset Quotes eld
+\end_inset
+
+nettoyer
+\begin_inset Quotes erd
+\end_inset
+
+ les fichiers de graphe , c'est a dire ré-indexer les noeuds qui sont vides
+\end_layout
+
+\begin_layout Standard
+avec la commande : $ cargo run --release -- --clean <fichier-ungraph.txt>
+ <fichier_output_clean.txt>
+\end_layout
+
+\begin_layout Subsection*
+la structure du code:
+\end_layout
+
+\begin_layout Standard
+le code propre a chaque tme se trouve dans src/tmex
+\end_layout
+
+\begin_layout Part
+TME3
+\end_layout
+
+\begin_layout Standard
+Pour lancer tous les calculs de ce TME sur un fichier il faut faire : cargo
+ run --release -- --tme3 <fichier_clean.txt>
+\end_layout
+
+\begin_layout Paragraph*
+A special quantity :
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Qvalues et temps de calculs pour chaque graphe
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nom
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Q value
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Temps
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Eu mail
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+88 109 182
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0 s 10 ms
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Amazon
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+103 415 531
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3 s 37 ms
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LJ
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+789 000 450 609
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+33 s 778 ms
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Orkut
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22 292 678 512 329
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 m 13 s 220
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Friendster
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+379 856 554 324 947
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31 m 58 s 112ms
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Densite des degres :
+\end_layout
+
+\begin_layout Standard
+voici les graphes des densités des nodes pour chaques graphes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename test/density-eu.png
+	lyxscale 50
+	height 25pheight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+eu-mail
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename test/density-amazon.png
+	lyxscale 50
+	height 25pheight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+amazon
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename test/density-orkut.png
+	lyxscale 50
+	height 25pheight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Orkut
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename test/density-lj.png
+	lyxscale 50
+	height 25pheight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Lj
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename test/density-friendster.png
+	lyxscale 50
+	height 25pheight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Friendster
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On voit des similaritées entre les graphes, les noeuds ont tendance a avoir
+ tres peu de voisins comparé au nombre de noeuds total.
+ La majorité ont moins de 10% des noeuds en vosins pour eu-mail et moins
+ d'un milliéme voire un millioniéme pour les autres.
+\end_layout
+
+\begin_layout Section
+Load in Memory
+\end_layout
+
+\begin_layout Standard
+On a implémenté les trois structure pour les graphes , voici les performances
+\end_layout
+
+\begin_layout Itemize
+Eu-mail:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Matrice d'adjacence : 1 mo en 3 ms
+\end_layout
+
+\begin_layout Itemize
+Liste des Arêtes : 257ko en 6 ms
+\end_layout
+
+\begin_layout Itemize
+Liste d'adjacence : 132ko en 11 ms
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Amazon:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Matrice d'adjacence : 280 Go (Théoriquement)
+\end_layout
+
+\begin_layout Itemize
+Liste des Arêtes : 1.4Mo en 118 ms
+\end_layout
+
+\begin_layout Itemize
+Liste d'adjacence : 0.740ko en 379 ms
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Lj:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Matrice d'adjacence : 15To (Théoriquement)
+\end_layout
+
+\begin_layout Itemize
+Liste des Arêtes : 554Mo en 4 s 327 ms
+\end_layout
+
+\begin_layout Itemize
+Liste d'adjacence : 293Mo en 10 s 897 ms
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Orkut:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Matrice d'adjacence : 8 To (Théoriquement)
+\end_layout
+
+\begin_layout Itemize
+Liste des Arêtes : 1.8 Go en 33s 398 ms
+\end_layout
+
+\begin_layout Itemize
+Liste d'adjacence : 0.9 Go en 62 s 43 ms
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Friendster : Pas assez de Ram
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Matrice d'adjacence : 13 880 To (Théoriquement)
+\end_layout
+
+\begin_layout Itemize
+Liste des Arêtes : 13.45 Go (Théoriquement)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+On voit que le nombre de degré faible des noeuds, comme vu précedement rend
+ la matrice d'adjacence complétement inutilisable dés le deuxiéme graphe.
+ La liste d'adjacence a de meilleures performances spaciales par rapport
+ a la liste des arêtes ,mais est plus lente.
+\end_layout
+
+\begin_layout Section
+BFS and Diameter
+\end_layout
+
+\begin_layout Standard
+Implémentation d'un algorithme de BFS
+\begin_inset Newline newline
+\end_inset
+
+On implémente les algitithmes pour la structure Liste d'Adjacence.
+\end_layout
+
+\begin_layout Standard
+La methode bfs_from(Node Index) rend une liste de tous les noeud du composant
+ dans l'ordre exploré en largeur.
+\end_layout
+
+\begin_layout Standard
+La methode composants() rend la liste des composants du graphe, on remarque
+ que pour tous les graphes on a un grand composants et un nuage de noeuds
+ isolés.
+\end_layout
+
+\begin_layout Standard
+La taille du plus gros composant est :
+\end_layout
+
+\begin_layout Itemize
+Eu-mail : 986 sur 1 005 noeuds soit 98%
+\end_layout
+
+\begin_layout Itemize
+Amazon : 334 863 sur 548 552 noeuds soit 61%
+\end_layout
+
+\begin_layout Itemize
+Lj : 3 997 962 sur 4 036 538 noeuds soit 99%
+\end_layout
+
+\begin_layout Itemize
+Orkut : 3 072 441sur 3 072 627noeuds soit 99%
+\end_layout
+
+\begin_layout Itemize
+Friendster : -
+\end_layout
+
+\begin_layout Standard
+La methode pour minorer le diametre est de faire, pour le gros composant
+ une BFS depuis un noeud au hasard, soit U le dernier noeud retourné par
+ la BFS , on refait une BFS a partir de U et on prend encore une fois le
+ dernier noeud W, la minoration du diamétre est la distance UW
+\end_layout
+
+\begin_layout Itemize
+Eu-mail : 7
+\end_layout
+
+\begin_layout Itemize
+Amazon : 47
+\end_layout
+
+\begin_layout Itemize
+Lj : 21
+\end_layout
+
+\begin_layout Itemize
+Orkut : 9
+\end_layout
+
+\begin_layout Itemize
+Friendster : -
+\end_layout
+
+\begin_layout Section
+Triangles
+\end_layout
+
+\begin_layout Itemize
+Eu-mail : 105461 en 0.012 s
+\end_layout
+
+\begin_layout Itemize
+Amazon : 666767 en 173s
+\end_layout
+
+\begin_layout Itemize
+Lj : -
+\end_layout
+
+\begin_layout Itemize
+Orkut : -
+\end_layout
+
+\begin_layout Itemize
+Friendster : -
+\end_layout
+
+\begin_layout Part
+TME4
+\end_layout
+
+\begin_layout Section
+Simple Benchmark
+\end_layout
+
+\begin_layout Standard
+Pour génerer les graphes aléatoires on utilise la commande : cargo run --release
+ -- --tme4rand <p> <q>
+\end_layout
+
+\begin_layout Standard
+on obtien les figures suivantes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename 0.2-0.2.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+pc= 0.2 pp=0.2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename 0.7-0.01.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+p= 0.7 q=0.01
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename 0.7-0.001.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+p = 0.7 q =0.001
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename 0.7-0.0001.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+p= 0.7 q= 0.0001
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 6 : avec la même probabilité on a un graphe homogéne
+\end_layout
+
+\begin_layout Standard
+Figure 7 : avec un grande disproportion entre p et q on commence a voir
+ les communautés se singulariser
+\end_layout
+
+\begin_layout Standard
+Figure 8 : avec une moindre probabilité q on dénote mieux les différentes
+ communautés , on a encore certains noeud qui sont ambigus , a cheval entre
+ deux communautés
+\end_layout
+
+\begin_layout Standard
+Figure 9 : avec q = 0.0001 les communautés sont clairement différenciables
+\end_layout
+
+\begin_layout Section
+Label Propagation
+\end_layout
+
+\begin_layout Standard
+Pour génerer le fichier d'histogramme des labels on utilise la commande
+ : cargo run --release -- --tme4hist <fichier_source> <fichier_dest>
+\end_layout
+
+\begin_layout Standard
+Pour youtube , on trace avec gnuplot et on obtient :
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename hist.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+histogramme pour 1000 calculs de label
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'algorithme de propagation est non-déterminisme, le nombre de round nécessaire
+ est variable (entre 15 et 30), le nombre de communautées calculées s'en
+ ressent.
+\end_layout
+
+\begin_layout Section
+Validation
+\end_layout
+
+\begin_layout Standard
+Pour compare les resultat de louvain on lance pour un fichier on lance :
+ cargo run --release -- --tme4hcomp <fichier_source>
+\end_layout
+
+\begin_layout Standard
+Cepandant mon implémentation de l'algorithme laisse a désirer, les valeurs
+ de deltaQ semblent absurdement hautes, le code est dans src/tme4.
+\end_layout
+
+\begin_layout Part
+TME5
+\end_layout
+
+\begin_layout Standard
+le code du page rank se trouve dans src/tme5 et se lance avec : cargo run
+ --release -- --tme5 <intput.txt> <fichier_pagerank.txt>
+\end_layout
+
+\begin_layout Section
+PageRank
+\end_layout
+
+\begin_layout Standard
+l'implémentation actuelle se sert d'une matrice, ce qui ne permet pas de
+ passer a l'echelle, de plus le résultat donne la même valeur a chaque noeud
+\end_layout
+
+\begin_layout Part
+TME6
+\end_layout
+
+\begin_layout Standard
+le code du tme se trouve dans src/tme6
+\end_layout
+
+\begin_layout Section
+k-core decomposition
+\end_layout
+
+\begin_layout Standard
+la decomposition se lance avec : cargo run --release -- --tme6decomp <input.txt>
+\end_layout
+
+\begin_layout Itemize
+eu
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+average degre density : 1.0135
+\end_layout
+
+\begin_layout Itemize
+edge density : 74
+\end_layout
+
+\begin_layout Itemize
+size : 1.0
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+amzon
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+average degre density : 1.000189
+\end_layout
+
+\begin_layout Itemize
+edge density : 0.9887323
+\end_layout
+
+\begin_layout Itemize
+size : 5264
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+les tas de rust ne supportent pas le fait de modifier des noeuds en place,
+ dans mon implémentation on construit et déconstruit le tas a chaque fois
+ , ce qui rend le temps pour des grands graphes tels que lj ou orkut prohibitif.
+\end_layout
+
+\begin_layout Part
+Conclusions
+\end_layout
+
+\begin_layout Standard
+Premiere conclusion de ces TME, implémenter des alogorithmes efficaces qui
+ passent a l'échelle ça prend beaucoup de temps, d'autant plus quand un
+ calcul prend 5-10 minutes.
+ C'est d'autant plus compliqué quand on est en monôme, penser a insister
+ pour que le projet soit fait en binôme.
+\end_layout
+
+\begin_layout Standard
+Deuxiéme remarque quand a l'utilisation de Rust; c'est un language qui se
+ veut efficace et qui est tout trouvé pour le calcul de grands graphes passant
+ trés bien l'échelle, outre le temps suplémentaire demandé par l'apprentissage
+ d'un nouveau language, Rust demande un plus grande rigeur dans la gestion
+ des pointeurs et des allocations ( devoir aussi un peu se battre avec le
+ borrow checker), mais quand j'ai vu certains autres groupes passer un partie
+ de leurs scéances a chercher des segfaults, la sureté memoire du language
+ a du me faire gagner au change.
+\end_layout
+
+\begin_layout Standard
+Mention notable a l'outil cargo qui est un builder complétement intégré
+ au compliteur et qui associe une simplicité d'utilisation avec de nombreux
+ outils tels qu'un profiler et Critérion, qui permet de faire des benchmarks
+ du code avec un soucis de la rigeur statistique, permettant d'analyser
+ avec facilité du code et ainsi de l'optimiser.
+\end_layout
+
+\end_body
+\end_document
